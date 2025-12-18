@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* YT Swiss Design System - Smart Home Management */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* YT Swiss Color Palette - Black & White */
+    --black-pure: 0 0% 0%;
+    --black-900: 0 0% 4%;
+    --black-800: 0 0% 10%;
+    --black-700: 0 0% 16%;
+    --black-600: 0 0% 23%;
+    
+    --white-pure: 0 0% 100%;
+    --white-900: 0 0% 96%;
+    --white-800: 0 0% 90%;
+    --white-700: 0 0% 84%;
+    
+    --gray-500: 0 0% 40%;
+    --gray-400: 0 0% 50%;
+    --gray-300: 0 0% 60%;
+    
+    /* Semantic Colors */
+    --background: var(--white-pure);
+    --foreground: var(--black-pure);
+    
+    --card: var(--white-pure);
+    --card-foreground: var(--black-pure);
+    
+    --popover: var(--white-pure);
+    --popover-foreground: var(--black-pure);
+    
+    --primary: var(--black-pure);
+    --primary-foreground: var(--white-pure);
+    
+    --secondary: var(--white-900);
+    --secondary-foreground: var(--black-pure);
+    
+    --muted: var(--white-900);
+    --muted-foreground: var(--gray-500);
+    
+    --accent: var(--white-800);
+    --accent-foreground: var(--black-pure);
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--white-pure);
+    
+    --success: 160 84% 39%;
+    --success-foreground: var(--white-pure);
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: var(--black-pure);
+    
+    --border: var(--white-800);
+    --input: var(--white-800);
+    --ring: var(--black-pure);
+    
+    --radius: 0px;
+    
+    /* Sidebar */
+    --sidebar-background: var(--black-pure);
+    --sidebar-foreground: var(--white-pure);
+    --sidebar-primary: var(--white-pure);
+    --sidebar-primary-foreground: var(--black-pure);
+    --sidebar-accent: var(--black-800);
+    --sidebar-accent-foreground: var(--white-pure);
+    --sidebar-border: var(--black-700);
+    --sidebar-ring: var(--white-pure);
+    
+    /* Swiss Spacing Scale */
+    --space-unit: 0.25rem;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-24: 6rem;
+  }
+
+  .dark {
+    --background: var(--black-900);
+    --foreground: var(--white-pure);
+    
+    --card: var(--black-800);
+    --card-foreground: var(--white-pure);
+    
+    --popover: var(--black-800);
+    --popover-foreground: var(--white-pure);
+    
+    --primary: var(--white-pure);
+    --primary-foreground: var(--black-pure);
+    
+    --secondary: var(--black-700);
+    --secondary-foreground: var(--white-pure);
+    
+    --muted: var(--black-700);
+    --muted-foreground: var(--gray-400);
+    
+    --accent: var(--black-600);
+    --accent-foreground: var(--white-pure);
+    
+    --border: var(--black-700);
+    --input: var(--black-700);
+    --ring: var(--white-pure);
+    
+    --sidebar-background: var(--black-pure);
+    --sidebar-foreground: var(--white-pure);
+    --sidebar-primary: var(--white-pure);
+    --sidebar-primary-foreground: var(--black-pure);
+    --sidebar-accent: var(--black-800);
+    --sidebar-accent-foreground: var(--white-pure);
+    --sidebar-border: var(--black-700);
+    --sidebar-ring: var(--white-pure);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Swiss Grid Utilities */
+  .swiss-grid {
+    display: grid;
+    gap: var(--space-4);
+  }
+  
+  .swiss-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-4);
+  }
+  
+  @media (min-width: 768px) {
+    .swiss-container {
+      padding: var(--space-6);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .swiss-container {
+      padding: var(--space-8);
+    }
+  }
+  
+  /* Swiss Typography */
+  .swiss-heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight;
+  }
+  
+  .swiss-heading-lg {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+  
+  .swiss-heading-md {
+    @apply text-xl md:text-2xl font-medium tracking-tight;
+  }
+  
+  .swiss-body {
+    @apply text-base leading-relaxed;
+  }
+  
+  .swiss-caption {
+    @apply text-sm text-muted-foreground;
+  }
+  
+  /* Swiss Animations */
+  .swiss-fade-in {
+    animation: swissFadeIn 0.3s ease-out;
+  }
+  
+  @keyframes swissFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .swiss-slide-in {
+    animation: swissSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  @keyframes swissSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Device Status Indicators */
+  .status-online {
+    @apply bg-green-500;
+  }
+  
+  .status-offline {
+    @apply bg-red-500;
+  }
+  
+  .status-idle {
+    @apply bg-yellow-500;
+  }
+}
